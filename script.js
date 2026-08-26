@@ -1,15 +1,16 @@
-/* =========================================================
-   MOBILE MENU
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", () => {
+  /* =========================================================
+     MOBILE MENU
+     ========================================================= */
 
   const menuButton = document.querySelector(".menu");
   const navigation = document.querySelector(".nav nav");
 
   if (menuButton && navigation) {
 
-    menuButton.addEventListener("click", () => {
+    menuButton.addEventListener("click", function () {
+
       navigation.classList.toggle("open");
 
       const isOpen = navigation.classList.contains("open");
@@ -22,18 +23,18 @@ document.addEventListener("DOMContentLoaded", () => {
       menuButton.textContent = isOpen ? "✕" : "☰";
     });
 
-    // Close menu when a navigation link is clicked
-    navigation.querySelectorAll("a").forEach(link => {
+    navigation.querySelectorAll("a").forEach(function (link) {
 
-      link.addEventListener("click", () => {
+      link.addEventListener("click", function () {
+
         navigation.classList.remove("open");
 
         menuButton.textContent = "☰";
         menuButton.setAttribute("aria-label", "Open menu");
+
       });
 
     });
-
   }
 
 
@@ -47,6 +48,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const minutesElement = document.getElementById("minutes");
   const secondsElement = document.getElementById("seconds");
 
+  console.log("Countdown elements:", {
+    days: daysElement,
+    hours: hoursElement,
+    minutes: minutesElement,
+    seconds: secondsElement
+  });
+
   if (
     daysElement &&
     hoursElement &&
@@ -54,15 +62,9 @@ document.addEventListener("DOMContentLoaded", () => {
     secondsElement
   ) {
 
-    // September 14, 2026 at midnight
-    // Month is 0-based: September = 8
+    // September 14, 2026 at 12:00 AM
     const festivalDate = new Date(
-      2026,
-      8,
-      14,
-      0,
-      0,
-      0
+      "2026-09-14T00:00:00"
     ).getTime();
 
 
@@ -85,25 +87,31 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
 
-      // Calculate remaining time
+      // Calculate days
       const days = Math.floor(
         difference / (1000 * 60 * 60 * 24)
       );
 
+
+      // Calculate hours
       const hours = Math.floor(
         (difference / (1000 * 60 * 60)) % 24
       );
 
+
+      // Calculate minutes
       const minutes = Math.floor(
         (difference / (1000 * 60)) % 60
       );
 
+
+      // Calculate seconds
       const seconds = Math.floor(
         (difference / 1000) % 60
       );
 
 
-      // Display countdown
+      // Display
       daysElement.textContent =
         String(days).padStart(2, "0");
 
@@ -124,6 +132,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Update every second
     setInterval(updateCountdown, 1000);
+
+  } else {
+
+    console.error(
+      "COUNTDOWN ERROR: days/hours/minutes/seconds elements were not found."
+    );
 
   }
 
@@ -150,7 +164,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } catch (error) {
 
-      // Fallback for browsers where clipboard API is blocked
       const textArea = document.createElement("textarea");
 
       textArea.value = upiID;
@@ -170,11 +183,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
       } catch (copyError) {
 
-        alert("Unable to copy UPI ID. Please copy it manually.");
+        alert(
+          "Unable to copy UPI ID. Please copy it manually."
+        );
 
       }
 
       document.body.removeChild(textArea);
+
     }
 
   };
@@ -190,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (music && musicButton) {
 
-    musicButton.addEventListener("click", async () => {
+    musicButton.addEventListener("click", async function () {
 
       try {
 
@@ -221,15 +237,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // Update button if music ends/stops
-    music.addEventListener("pause", () => {
+    music.addEventListener("pause", function () {
 
       musicButton.innerHTML =
         "🔇 <span>Play Music</span>";
 
     });
 
-    music.addEventListener("play", () => {
+
+    music.addEventListener("play", function () {
 
       musicButton.innerHTML =
         "🔊 <span>Pause Music</span>";
