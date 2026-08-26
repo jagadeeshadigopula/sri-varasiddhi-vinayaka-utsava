@@ -1,36 +1,89 @@
-/* Committee Members - Slow Right to Left */
+/* =========================================================
+   COMMITTEE MEMBERS - CONTINUOUS SLOW SCROLL
+   ========================================================= */
 
 .member-scroll-section {
+  width: 100%;
   margin-top: 30px;
   text-align: center;
+  overflow: hidden;
 }
 
 .member-scroll-section h3 {
-  margin-bottom: 12px;
+  margin: 0 0 14px;
   font-size: 20px;
 }
 
 .member-scroll-window {
   width: 100%;
-  height: 40px;
   overflow: hidden;
+  white-space: nowrap;
   position: relative;
 }
 
-.member-scroll-name {
-  position: absolute;
-  white-space: nowrap;
-  font-size: 18px;
-  font-weight: 600;
-  animation: memberRightToLeft 6s linear;
+.member-scroll-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+
+  animation: committeeNamesScroll 45s linear infinite;
 }
 
-@keyframes memberRightToLeft {
+.member-list {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-right: 18px;
+
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.member-list span {
+  display: inline-block;
+  white-space: nowrap;
+
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Continuous right → left movement */
+
+@keyframes committeeNamesScroll {
+
   0% {
-    transform: translateX(100vw);
+    transform: translateX(0);
   }
 
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+  .member-scroll-section {
+    margin-top: 25px;
+  }
+
+  .member-scroll-section h3 {
+    font-size: 18px;
+  }
+
+  .member-list {
+    gap: 12px;
+    padding-right: 12px;
+  }
+
+  .member-list span {
+    font-size: 15px;
+  }
+
+  .member-scroll-track {
+    animation-duration: 40s;
+  }
+
 }
