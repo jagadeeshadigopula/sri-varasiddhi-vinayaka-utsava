@@ -1,5 +1,5 @@
 /* IMPORTANT: Paste your deployed Google Apps Script Web App URL here. */
-const API_URL = "https://script.google.com/macros/s/AKfycbz7laRrajeN0IdwVR9NUwMrffT6I4wtLhstBhpsb9ojcJkObTx8BQ7exad6z8nMnuN1VQ/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbx7RgjCtmHfgr36VBsfXCKJGg6oKvm-JfsSxYmvZZZdL-wgTL9sJ8iZEKs_dwT1Wbu17w/exec";
 let sessionToken = "";
 
 const $ = (id) => document.getElementById(id);
