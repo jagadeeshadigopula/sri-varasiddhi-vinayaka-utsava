@@ -1,112 +1,155 @@
-// ===============================
-// Sri Varasiddhi Vinayaka Utsava
-// Website JavaScript
-// ===============================
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
 
-// Mobile navigation
 const menuButton = document.querySelector(".menu");
-const nav = document.querySelector(".nav nav");
+const navigation = document.querySelector(".nav nav");
 
-if (menuButton && nav) {
+if (menuButton && navigation) {
+
   menuButton.addEventListener("click", () => {
-    nav.classList.toggle("open");
-    menuButton.textContent = nav.classList.contains("open") ? "✕" : "☰";
+    navigation.classList.toggle("open");
   });
 
-  nav.querySelectorAll("a").forEach(link => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
-      menuButton.textContent = "☰";
-    });
-  });
 }
 
 
-// ===============================
-// Ganesh Chaturthi Countdown
-// ===============================
+/* Close mobile menu after clicking a link */
+
+document.querySelectorAll(".nav nav a").forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    if (navigation) {
+      navigation.classList.remove("open");
+    }
+
+  });
+
+});
+
+
+/* =========================================================
+   GANESH CHATURTHI COUNTDOWN
+   ========================================================= */
 
 const festivalDate = new Date("September 14, 2026 00:00:00").getTime();
 
 function updateCountdown() {
+
   const now = new Date().getTime();
+
   const difference = festivalDate - now;
 
-  const days = document.getElementById("days");
-  const hours = document.getElementById("hours");
-  const minutes = document.getElementById("minutes");
-  const seconds = document.getElementById("seconds");
+  const daysElement = document.getElementById("days");
+  const hoursElement = document.getElementById("hours");
+  const minutesElement = document.getElementById("minutes");
+  const secondsElement = document.getElementById("seconds");
 
-  if (!days || !hours || !minutes || !seconds) return;
-
-  if (difference <= 0) {
-    days.textContent = "00";
-    hours.textContent = "00";
-    minutes.textContent = "00";
-    seconds.textContent = "00";
+  if (!daysElement || !hoursElement || !minutesElement || !secondsElement) {
     return;
   }
 
-  const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-  const h = Math.floor((difference / (1000 * 60 * 60)) % 24);
-  const m = Math.floor((difference / (1000 * 60)) % 60);
-  const s = Math.floor((difference / 1000) % 60);
+  if (difference <= 0) {
 
-  days.textContent = String(d).padStart(2, "0");
-  hours.textContent = String(h).padStart(2, "0");
-  minutes.textContent = String(m).padStart(2, "0");
-  seconds.textContent = String(s).padStart(2, "0");
+    daysElement.textContent = "00";
+    hoursElement.textContent = "00";
+    minutesElement.textContent = "00";
+    secondsElement.textContent = "00";
+
+    return;
+  }
+
+  const days = Math.floor(
+    difference / (1000 * 60 * 60 * 24)
+  );
+
+  const hours = Math.floor(
+    (difference / (1000 * 60 * 60)) % 24
+  );
+
+  const minutes = Math.floor(
+    (difference / (1000 * 60)) % 60
+  );
+
+  const seconds = Math.floor(
+    (difference / 1000) % 60
+  );
+
+  daysElement.textContent = String(days).padStart(2, "0");
+  hoursElement.textContent = String(hours).padStart(2, "0");
+  minutesElement.textContent = String(minutes).padStart(2, "0");
+  secondsElement.textContent = String(seconds).padStart(2, "0");
+
 }
 
 updateCountdown();
+
 setInterval(updateCountdown, 1000);
 
 
-// ===============================
-// Background Devotional Music
-// ===============================
+/* =========================================================
+   COPY UPI ID
+   ========================================================= */
+
+function copyUPI() {
+
+  const upiElement = document.getElementById("upiText");
+
+  if (!upiElement) {
+    return;
+  }
+
+  const upiID = upiElement.textContent.trim();
+
+  navigator.clipboard.writeText(upiID)
+    .then(() => {
+
+      alert("UPI ID copied!");
+
+    })
+    .catch(() => {
+
+      alert("Unable to copy UPI ID.");
+
+    });
+
+}
+
+
+/* =========================================================
+   DEVOTIONAL MUSIC
+   ========================================================= */
 
 const music = document.getElementById("ganeshaMusic");
 const musicButton = document.getElementById("musicButton");
 
 if (music && musicButton) {
+
   musicButton.addEventListener("click", async () => {
+
     try {
+
       if (music.paused) {
+
         await music.play();
-        musicButton.innerHTML = "🔊 <span>Music On</span>";
+
+        musicButton.innerHTML = "🔊 <span>Pause Music</span>";
+
       } else {
+
         music.pause();
-        musicButton.innerHTML = "🔇 <span>Music Off</span>";
+
+        musicButton.innerHTML = "🔇 <span>Play Music</span>";
+
       }
+
     } catch (error) {
-      console.log("Music could not be played:", error);
-      alert("Please add ganesha-pancharatnam-instrumental.mp3 inside the assets folder.");
+
+      alert("Please make sure the MP3 file exists inside the assets folder.");
+
     }
+
   });
 
-  music.addEventListener("ended", () => {
-    musicButton.innerHTML = "🔇 <span>Play Music</span>";
-  });
-}
-
-
-// ===============================
-// Copy UPI ID
-// ===============================
-
-function copyUPI() {
-  const upiElement = document.getElementById("upiText");
-
-  if (!upiElement) return;
-
-  const upi = upiElement.textContent.trim();
-
-  navigator.clipboard.writeText(upi)
-    .then(() => {
-      alert("UPI ID copied: " + upi);
-    })
-    .catch(() => {
-      alert("Unable to copy UPI ID. Please copy it manually.");
-    });
 }
