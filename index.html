@@ -42,10 +42,6 @@
   </nav>
 </header>
 
-<!-- Background devotional music.
-     Put your legally obtained MP3 at:
-     assets/ganesha-pancharatnam-instrumental.mp3
--->
 <audio id="ganeshaMusic" loop preload="auto">
   <source src="assets/ganesha-pancharatnam-instrumental.mp3" type="audio/mpeg">
 </audio>
@@ -197,17 +193,71 @@
     <article><div class="avatar">T</div><span>Treasurer</span><h3>Add Name</h3></article>
   </div>
 
-  <!-- Committee Members -->
+  <!-- CONTINUOUS COMMITTEE MEMBER SCROLL -->
   <div class="member-scroll-section">
     <h3>Our Committee Members</h3>
 
     <div class="member-scroll-window">
-      <div id="memberName" class="member-scroll-name">
-        K Yateesh Kumar
+      <div class="member-scroll-track">
+
+        <span>K Yateesh Kumar</span>
+        <span>•</span>
+        <span>S Pavan</span>
+        <span>•</span>
+        <span>P Gopi</span>
+        <span>•</span>
+        <span>J Sai</span>
+        <span>•</span>
+        <span>J Pramod</span>
+        <span>•</span>
+        <span>D Vamsi Krishna</span>
+        <span>•</span>
+        <span>A Nagarjuna</span>
+        <span>•</span>
+        <span>A Krishna Reddy</span>
+        <span>•</span>
+        <span>A Leela</span>
+        <span>•</span>
+        <span>SD Subhani</span>
+        <span>•</span>
+        <span>Mahesh</span>
+        <span>•</span>
+        <span>Mohid</span>
+        <span>•</span>
+        <span>Riyaz</span>
+        <span>•</span>
+
+        <!-- Duplicate list for seamless continuous scrolling -->
+        <span>K Yateesh Kumar</span>
+        <span>•</span>
+        <span>S Pavan</span>
+        <span>•</span>
+        <span>P Gopi</span>
+        <span>•</span>
+        <span>J Sai</span>
+        <span>•</span>
+        <span>J Pramod</span>
+        <span>•</span>
+        <span>D Vamsi Krishna</span>
+        <span>•</span>
+        <span>A Nagarjuna</span>
+        <span>•</span>
+        <span>A Krishna Reddy</span>
+        <span>•</span>
+        <span>A Leela</span>
+        <span>•</span>
+        <span>SD Subhani</span>
+        <span>•</span>
+        <span>Mahesh</span>
+        <span>•</span>
+        <span>Mohid</span>
+        <span>•</span>
+        <span>Riyaz</span>
+        <span>•</span>
+
       </div>
     </div>
   </div>
-
 </section>
 
 <section id="donate" class="donation">
@@ -273,48 +323,6 @@
 </footer>
 
 <script src="script.js"></script>
-
-<script>
-const committeeMembers = [
-  "K Yateesh Kumar",
-  "S Pavan",
-  "P Gopi",
-  "J Sai",
-  "J Pramod",
-  "D Vamsi Krishna",
-  "A Nagarjuna",
-  "A Krishna Reddy",
-  "A Leela",
-  "SD Subhani",
-  "Mahesh",
-  "Mohid",
-  "Riyaz"
-];
-
-let memberIndex = 0;
-
-const memberName = document.getElementById("memberName");
-
-function showNextMember() {
-  memberName.style.animation = "none";
-
-  void memberName.offsetWidth;
-
-  memberName.textContent = committeeMembers[memberIndex];
-
-  memberName.style.animation = "memberRightToLeft 6s linear";
-
-  memberIndex++;
-
-  if (memberIndex >= committeeMembers.length) {
-    memberIndex = 0;
-  }
-}
-
-showNextMember();
-
-setInterval(showNextMember, 6000);
-</script>
 
 </body>
 </html>
