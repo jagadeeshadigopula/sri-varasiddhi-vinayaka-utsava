@@ -1,3 +1,9 @@
+/* =========================================================
+   SRI VARASIDDHI VINAYAKA UTSAVA COMMITTEE
+   RESPONSIVE WEBSITE CSS
+   Desktop • Tablet • Mobile
+========================================================= */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 85px;
 }
 
 body {
@@ -13,6 +20,7 @@ body {
   color: #3b2117;
   background: #fffaf2;
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
 img {
@@ -24,6 +32,15 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+button {
+  font-family: inherit;
+}
+
+
+/* =========================================================
+   ANNOUNCEMENT BAR
+========================================================= */
 
 .announcement {
   min-height: 40px;
@@ -38,6 +55,11 @@ a {
   font-weight: 600;
 }
 
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
 .nav {
   position: sticky;
   top: 0;
@@ -48,7 +70,7 @@ a {
   align-items: center;
   justify-content: space-between;
   gap: 25px;
-  background: rgba(255, 250, 242, .96);
+  background: rgba(255, 250, 242, 0.96);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid #ead8b8;
 }
@@ -57,18 +79,20 @@ a {
   display: flex;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .logo-mark {
   width: 48px;
   height: 48px;
+  flex: 0 0 48px;
   display: grid;
   place-items: center;
   border-radius: 50%;
   background: #b87813;
   color: #fff;
   font-size: 25px;
-  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
 
 .logo b {
@@ -76,12 +100,14 @@ a {
   font-family: "Noto Sans Telugu", sans-serif;
   color: #751b16;
   font-size: 15px;
+  line-height: 1.4;
 }
 
 .logo small {
   display: block;
   color: #806c5b;
   font-size: 10px;
+  line-height: 1.4;
 }
 
 .nav nav {
@@ -93,7 +119,7 @@ a {
 .nav nav a {
   font-size: 13px;
   font-weight: 600;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .nav nav a:hover {
@@ -111,9 +137,49 @@ a {
   display: none;
   border: 0;
   background: transparent;
-  font-size: 27px;
+  color: #751b16;
+  font-size: 28px;
   cursor: pointer;
+  padding: 6px;
+  line-height: 1;
 }
+
+
+/* =========================================================
+   MUSIC BUTTON
+========================================================= */
+
+.music-button {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 9999;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50px;
+  padding: 12px 18px;
+  background: #751b16;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  transition: 0.3s;
+}
+
+.music-button:hover {
+  transform: translateY(-3px);
+  background: #a65e18;
+}
+
+.music-button:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
   min-height: 720px;
@@ -123,21 +189,32 @@ a {
   place-items: center;
   text-align: center;
   color: #fff;
+
   background:
-    radial-gradient(circle at 50% 35%, rgba(224,164,55,.30), transparent 28%),
-    linear-gradient(135deg, #57130f, #8f271d 48%, #55110e);
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(224, 164, 55, 0.30),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #57130f,
+      #8f271d 48%,
+      #55110e
+    );
 }
 
 .mandala {
   position: absolute;
   width: 600px;
   height: 600px;
-  border: 2px solid rgba(255,215,120,.18);
+  border: 2px solid rgba(255, 215, 120, 0.18);
   border-radius: 50%;
   box-shadow:
-    0 0 0 30px rgba(255,215,120,.03),
-    0 0 0 60px rgba(255,215,120,.025),
-    0 0 0 90px rgba(255,215,120,.02);
+    0 0 0 30px rgba(255, 215, 120, 0.03),
+    0 0 0 60px rgba(255, 215, 120, 0.025),
+    0 0 0 90px rgba(255, 215, 120, 0.02);
+  pointer-events: none;
 }
 
 .hero-inner {
@@ -150,7 +227,7 @@ a {
 .om {
   font-size: 54px;
   color: #ffd36b;
-  text-shadow: 0 0 25px rgba(255,211,107,.35);
+  text-shadow: 0 0 25px rgba(255, 211, 107, 0.35);
 }
 
 .eyebrow,
@@ -185,13 +262,60 @@ a {
   color: #f7e9d1;
 }
 
+
+/* =========================================================
+   FLOATING DECORATIONS
+========================================================= */
+
+.petal {
+  position: absolute;
+  font-size: 32px;
+  opacity: 0.7;
+  animation: float 5s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.p1 {
+  left: 8%;
+  top: 22%;
+}
+
+.p2 {
+  right: 10%;
+  top: 28%;
+  animation-delay: 1s;
+}
+
+.p3 {
+  left: 13%;
+  bottom: 18%;
+  animation-delay: 2s;
+}
+
+.p4 {
+  right: 12%;
+  bottom: 16%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  50% {
+    transform: translateY(-16px) rotate(8deg);
+  }
+}
+
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
 .countdown {
   width: min(620px, 100%);
   margin: 30px auto 25px;
   padding: 20px;
-  border: 1px solid rgba(255,255,255,.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 20px;
-  background: rgba(0,0,0,.18);
+  background: rgba(0, 0, 0, 0.18);
   backdrop-filter: blur(5px);
 }
 
@@ -212,12 +336,13 @@ a {
 .count-grid div {
   padding: 10px;
   border-radius: 12px;
-  background: rgba(255,255,255,.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .count-grid strong {
   display: block;
   font-size: 30px;
+  line-height: 1.2;
 }
 
 .count-grid span,
@@ -225,6 +350,11 @@ a {
   font-size: 11px;
   color: #ead9bf;
 }
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .actions {
   display: flex;
@@ -239,7 +369,7 @@ a {
   border-radius: 30px;
   font-weight: 700;
   font-size: 13px;
-  transition: .25s;
+  transition: 0.25s;
 }
 
 .btn:hover {
@@ -252,7 +382,7 @@ a {
 }
 
 .btn.outline {
-  border: 1px solid rgba(255,255,255,.65);
+  border: 1px solid rgba(255, 255, 255, 0.65);
   color: #fff;
 }
 
@@ -261,23 +391,10 @@ a {
   color: #751b16;
 }
 
-.petal {
-  position: absolute;
-  font-size: 32px;
-  opacity: .7;
-  animation: float 5s ease-in-out infinite;
-}
 
-.p1 { left: 8%; top: 22%; }
-.p2 { right: 10%; top: 28%; animation-delay: 1s; }
-.p3 { left: 13%; bottom: 18%; animation-delay: 2s; }
-.p4 { right: 12%; bottom: 16%; animation-delay: 3s; }
-
-@keyframes float {
-  50% {
-    transform: translateY(-16px) rotate(8deg);
-  }
-}
+/* =========================================================
+   COMMON SECTION SPACING
+========================================================= */
 
 .welcome,
 .section,
@@ -286,6 +403,11 @@ a {
 .sponsors {
   padding: 90px 7%;
 }
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
 
 .welcome {
   display: grid;
@@ -297,7 +419,7 @@ a {
 .welcome-poster {
   border-radius: 24px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(79,38,14,.18);
+  box-shadow: 0 20px 50px rgba(79, 38, 14, 0.18);
 }
 
 .welcome-poster img {
@@ -323,6 +445,11 @@ a {
 .welcome-copy > p {
   color: #705f50;
 }
+
+
+/* =========================================================
+   MINI STATS
+========================================================= */
 
 .mini-stats {
   margin-top: 30px;
@@ -357,6 +484,11 @@ a {
   color: #8a7767;
 }
 
+
+/* =========================================================
+   SECTION HEADINGS
+========================================================= */
+
 .heading {
   text-align: center;
   max-width: 850px;
@@ -366,6 +498,11 @@ a {
 .heading p {
   color: #786859;
 }
+
+
+/* =========================================================
+   VALUES
+========================================================= */
 
 .values,
 .team {
@@ -381,7 +518,7 @@ a {
   border-radius: 20px;
   padding: 28px;
   text-align: center;
-  box-shadow: 0 8px 25px rgba(70,30,10,.05);
+  box-shadow: 0 8px 25px rgba(70, 30, 10, 0.05);
 }
 
 .values article > span {
@@ -397,6 +534,11 @@ a {
   font-size: 13px;
   color: #786859;
 }
+
+
+/* =========================================================
+   DARK SECTION / EVENTS
+========================================================= */
 
 .dark-section {
   background: #32120f;
@@ -420,9 +562,9 @@ a {
   gap: 25px;
   align-items: center;
   padding: 22px;
-  border: 1px solid rgba(255,255,255,.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 18px;
-  background: rgba(255,255,255,.045);
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .date {
@@ -457,6 +599,11 @@ a {
   font-size: 13px;
 }
 
+
+/* =========================================================
+   POOJA SCHEDULE
+========================================================= */
+
 .schedule {
   max-width: 850px;
   margin: auto;
@@ -466,7 +613,7 @@ a {
 
 .schedule-row {
   display: grid;
-  grid-template-columns: 1.3fr .7fr 1.4fr;
+  grid-template-columns: 1.3fr 0.7fr 1.4fr;
   gap: 15px;
   align-items: center;
   padding: 20px;
@@ -483,6 +630,11 @@ a {
 .schedule-row small {
   color: #806f60;
 }
+
+
+/* =========================================================
+   QUOTE
+========================================================= */
 
 .quote {
   padding: 75px 7%;
@@ -508,6 +660,11 @@ a {
   color: #f9e5c9;
 }
 
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
 .gallery-grid {
   max-width: 1000px;
   margin: auto;
@@ -519,12 +676,12 @@ a {
 .gallery-grid figure {
   overflow: hidden;
   border-radius: 18px;
+  position: relative;
 }
 
 .gallery-grid .big {
   grid-row: span 2;
   min-height: 400px;
-  position: relative;
 }
 
 .gallery-grid .big img {
@@ -533,22 +690,48 @@ a {
   object-fit: cover;
 }
 
+.gallery-grid .big::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.55),
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
 .gallery-grid figcaption {
   position: absolute;
   left: 15px;
   bottom: 15px;
   color: #fff;
   font-weight: 700;
+  z-index: 2;
 }
 
 .photo-card {
   min-height: 190px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   background: #f5e6cf;
   text-align: center;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.photo-card:hover img {
+  transform: scale(1.05);
+}
+
+.photo-card b {
+  display: block;
+  padding: 12px 10px 14px;
+  color: #3b2117;
 }
 
 .photo-card div {
@@ -558,6 +741,11 @@ a {
 .photo-card small {
   color: #806f60;
 }
+
+
+/* =========================================================
+   OPTIONAL TEAM CARD SUPPORT
+========================================================= */
 
 .avatar {
   width: 75px;
@@ -579,149 +767,10 @@ a {
   letter-spacing: 1px;
 }
 
-.donation {
-  display: grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 50px;
-  align-items: center;
-  background: #751b16;
-  color: #fff;
-}
-
-.donation p {
-  color: #ead5c4;
-}
-
-.secure-note {
-  margin-top: 20px;
-  color: #ffd36b;
-  font-size: 13px;
-}
-
-.donate-card {
-  padding: 25px;
-  border-radius: 22px;
-  background: #fffaf2;
-  color: #3b2117;
-  display: flex;
-  gap: 22px;
-  align-items: center;
-}
-
-.qr {
-  width: 110px;
-  height: 110px;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background: repeating-linear-gradient(
-    45deg,
-    #222 0 5px,
-    #fff 5px 10px
-  );
-  color: #b87813;
-  font-weight: 900;
-}
-
-.donate-card h3 {
-  font-size: 16px;
-  word-break: break-all;
-  margin: 6px 0 10px;
-}
-
-.donate-card button {
-  border: 0;
-  padding: 9px 14px;
-  border-radius: 20px;
-  background: #a65e18;
-  color: #fff;
-  cursor: pointer;
-}
-
-.sponsor-row {
-  max-width: 1000px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}
-
-.sponsor-row span {
-  padding: 25px;
-  text-align: center;
-  border: 1px dashed #c7ae8d;
-  border-radius: 14px;
-  color: #8c7560;
-  font-weight: 800;
-  font-size: 12px;
-}
-
-.contact {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  align-items: center;
-  background: #f3e4cf;
-}
-
-.contact p {
-  margin: 8px 0;
-  color: #695647;
-}
-
-.contact-buttons {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-footer {
-  padding: 35px 7%;
-  background: #260d0b;
-  color: #fff;
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  font-size: 12px;
-}
-
-footer b {
-  font-family: "Noto Sans Telugu", sans-serif;
-  color: #ffd36b;
-}
-
-footer p {
-  color: #cbb8a8;
-  margin-top: 5px;
-}
-
-.music-button {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 9999;
-  border: 1px solid rgba(255,255,255,.25);
-  border-radius: 50px;
-  padding: 12px 18px;
-  background: #751b16;
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0,0,0,.25);
-  transition: .3s;
-}
-
-.music-button:hover {
-  transform: translateY(-3px);
-  background: #a65e18;
-}
-
 
 /* =========================================================
-   COMMITTEE MEMBERS - CONTINUOUS SLOW MARQUEE
-   ========================================================= */
+   COMMITTEE MEMBER MARQUEE
+========================================================= */
 
 .member-scroll-section {
   width: 100%;
@@ -774,11 +823,7 @@ footer p {
   font-size: 15px;
 }
 
-
-/* RIGHT TO LEFT - CONTINUOUS */
-
 @keyframes committeeContinuousScroll {
-
   from {
     transform: translateX(0);
   }
@@ -786,76 +831,174 @@ footer p {
   to {
     transform: translateX(-50%);
   }
-
 }
 
 
-/* TABLET / MOBILE */
+/* =========================================================
+   DONATION
+========================================================= */
 
-@media (max-width: 900px) {
+.donation {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 50px;
+  align-items: center;
+  background: #751b16;
+  color: #fff;
+}
 
-  .nav nav {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    padding: 20px;
-    background: #fffaf2;
-    border-bottom: 1px solid #ead8b8;
-    flex-direction: column;
-    align-items: stretch;
+.donation p {
+  color: #ead5c4;
+}
+
+.secure-note {
+  margin-top: 20px;
+  color: #ffd36b;
+  font-size: 13px;
+}
+
+.donate-card {
+  padding: 25px;
+  border-radius: 22px;
+  background: #fffaf2;
+  color: #3b2117;
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.qr {
+  width: 160px;
+  height: 160px;
+  flex: 0 0 160px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.qr img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.donate-card h3 {
+  font-size: 16px;
+  word-break: break-all;
+  margin: 6px 0 10px;
+}
+
+.donate-card button {
+  border: 0;
+  padding: 9px 14px;
+  border-radius: 20px;
+  background: #a65e18;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.donate-card button:hover {
+  background: #751b16;
+}
+
+.donate-card button.copied {
+  background: #287a3e;
+}
+
+
+/* =========================================================
+   SPONSORS
+========================================================= */
+
+.sponsor-row {
+  max-width: 1000px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.sponsor-row span {
+  padding: 25px;
+  text-align: center;
+  border: 1px dashed #c7ae8d;
+  border-radius: 14px;
+  color: #8c7560;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+  background: #f3e4cf;
+}
+
+.contact p {
+  margin: 8px 0;
+  color: #695647;
+}
+
+.contact-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  padding: 35px 7%;
+  background: #260d0b;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  font-size: 12px;
+}
+
+footer b {
+  font-family: "Noto Sans Telugu", sans-serif;
+  color: #ffd36b;
+}
+
+footer p {
+  color: #cbb8a8;
+  margin-top: 5px;
+}
+
+
+/* =========================================================
+   TABLET
+   901px → 1100px
+========================================================= */
+
+@media (max-width: 1100px) {
+
+  .nav {
+    padding-left: 4%;
+    padding-right: 4%;
   }
 
-  .nav nav.open {
-    display: flex;
+  .nav nav {
+    gap: 13px;
   }
 
   .nav nav a {
-    padding: 10px;
-    text-align: center;
-  }
-
-  .menu {
-    display: block;
-  }
-
-  .welcome,
-  .donation {
-    grid-template-columns: 1fr;
-  }
-
-  .values,
-  .team {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-
-@media (max-width: 650px) {
-
-  .announcement {
-    flex-direction: column;
-    text-align: center;
-    gap: 3px;
-    font-size: 11px;
-  }
-
-  .hero {
-    min-height: 680px;
-  }
-
-  .hero h1 {
-    font-size: 30px;
-  }
-
-  .count-grid {
-    gap: 5px;
-  }
-
-  .count-grid strong {
-    font-size: 23px;
+    font-size: 12px;
   }
 
   .welcome,
@@ -863,34 +1006,470 @@ footer p {
   .contact,
   .donation,
   .sponsors {
-    padding: 65px 5%;
+    padding-left: 5%;
+    padding-right: 5%;
   }
 
-  .mini-stats,
-  .values,
-  .team,
-  .sponsor-row {
+  .welcome {
+    gap: 40px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   900px and below
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .nav {
+    min-height: 70px;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .nav nav {
+    display: none;
+
+    position: absolute;
+
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    padding: 18px 20px;
+
+    background: #fffaf2;
+
+    border-bottom: 1px solid #ead8b8;
+
+    box-shadow: 0 12px 25px rgba(60, 30, 10, 0.10);
+
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 4px;
+  }
+
+  .nav nav.open {
+    display: flex;
+  }
+
+  .nav nav a {
+    padding: 12px 15px;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .nav nav a:hover {
+    background: #f5e6cf;
+  }
+
+  .nav nav .nav-btn {
+    margin-top: 5px;
+  }
+
+  .welcome,
+  .donation {
     grid-template-columns: 1fr;
   }
 
+  .welcome {
+    gap: 40px;
+  }
+
+  .values,
+  .team {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .donation {
+    gap: 35px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   650px and below
+========================================================= */
+
+@media (max-width: 650px) {
+
+  /* -----------------------------------------
+     Announcement
+  ----------------------------------------- */
+
+  .announcement {
+    min-height: auto;
+    padding: 7px 12px;
+
+    flex-direction: column;
+
+    text-align: center;
+
+    gap: 2px;
+
+    font-size: 10px;
+
+    line-height: 1.4;
+  }
+
+
+  /* -----------------------------------------
+     Navigation
+  ----------------------------------------- */
+
+  .nav {
+    min-height: 65px;
+    padding: 9px 14px;
+  }
+
+  .logo {
+    gap: 8px;
+    max-width: calc(100% - 50px);
+  }
+
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    font-size: 21px;
+  }
+
+  .logo b {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .logo small {
+    font-size: 8px;
+  }
+
+  .menu {
+    font-size: 26px;
+  }
+
+
+  /* -----------------------------------------
+     Hero
+  ----------------------------------------- */
+
+  .hero {
+    min-height: auto;
+    padding: 35px 0 55px;
+  }
+
+  .hero-inner {
+    width: 92%;
+    padding: 25px 0;
+  }
+
+  .om {
+    font-size: 42px;
+  }
+
+  .hero .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero h1 {
+    font-size: clamp(25px, 8vw, 34px);
+    line-height: 1.35;
+  }
+
+  .hero h2 {
+    font-size: 19px;
+    line-height: 1.5;
+    margin: 12px 0;
+  }
+
+  .hero p {
+    font-size: 13px;
+    padding: 0 8px;
+  }
+
+  .mandala {
+    width: 380px;
+    height: 380px;
+  }
+
+  .petal {
+    font-size: 23px;
+  }
+
+  .p1 {
+    left: 4%;
+    top: 13%;
+  }
+
+  .p2 {
+    right: 4%;
+    top: 19%;
+  }
+
+  .p3 {
+    left: 5%;
+    bottom: 8%;
+  }
+
+  .p4 {
+    right: 5%;
+    bottom: 7%;
+  }
+
+
+  /* -----------------------------------------
+     Countdown
+  ----------------------------------------- */
+
+  .countdown {
+    margin: 25px auto 22px;
+    padding: 15px 10px;
+    border-radius: 16px;
+  }
+
+  .count-title {
+    font-size: 9px;
+    letter-spacing: 1.3px;
+  }
+
+  .count-grid {
+    gap: 5px;
+  }
+
+  .count-grid div {
+    padding: 9px 3px;
+    border-radius: 9px;
+  }
+
+  .count-grid strong {
+    font-size: 22px;
+  }
+
+  .count-grid span {
+    font-size: 8px;
+  }
+
+  .countdown > small {
+    font-size: 9px;
+  }
+
+
+  /* -----------------------------------------
+     Buttons
+  ----------------------------------------- */
+
+  .actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .actions .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .btn {
+    padding: 11px 18px;
+    font-size: 12px;
+  }
+
+
+  /* -----------------------------------------
+     General Sections
+  ----------------------------------------- */
+
+  .welcome,
+  .section,
+  .contact,
+  .donation,
+  .sponsors {
+    padding: 60px 5%;
+  }
+
+  .heading {
+    margin-bottom: 32px;
+  }
+
+  .heading h2,
+  .welcome-copy h2,
+  .donation h2,
+  .contact h2 {
+    font-size: 27px;
+    line-height: 1.3;
+  }
+
+  .heading p {
+    font-size: 13px;
+  }
+
+  .kicker {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+
+  /* -----------------------------------------
+     Welcome
+  ----------------------------------------- */
+
+  .welcome {
+    gap: 30px;
+  }
+
+  .welcome-poster {
+    border-radius: 18px;
+  }
+
+  .welcome-poster img {
+    min-height: auto;
+    max-height: 480px;
+    object-fit: cover;
+  }
+
+  .welcome-copy > p {
+    font-size: 13px;
+  }
+
+
+  /* -----------------------------------------
+     Mini Stats
+  ----------------------------------------- */
+
+  .mini-stats {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .mini-stats div {
+    padding: 14px;
+  }
+
+
+  /* -----------------------------------------
+     Values
+  ----------------------------------------- */
+
+  .values,
+  .team {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .values article,
+  .team article {
+    padding: 22px 18px;
+  }
+
+  .values p {
+    font-size: 12px;
+  }
+
+
+  /* -----------------------------------------
+     Events
+  ----------------------------------------- */
+
+  .timeline {
+    gap: 10px;
+  }
+
   .timeline article {
-    grid-template-columns: 75px 1fr;
-    gap: 15px;
-    padding: 15px;
+    grid-template-columns: 65px 1fr;
+    gap: 12px;
+    padding: 13px;
+    align-items: start;
   }
 
   .date {
-    min-height: 65px;
-    font-size: 15px;
+    min-height: 60px;
+    font-size: 13px;
+  }
+
+  .date small {
+    font-size: 8px;
+  }
+
+  .tag {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .timeline h3 {
+    font-size: 16px;
+  }
+
+  .timeline p {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+
+  /* -----------------------------------------
+     Pooja Schedule
+  ----------------------------------------- */
+
+  .schedule {
+    gap: 10px;
   }
 
   .schedule-row {
     grid-template-columns: 1fr;
-    gap: 5px;
+    gap: 4px;
+    padding: 16px;
   }
+
+  .schedule-row b {
+    font-size: 14px;
+  }
+
+  .schedule-row span {
+    font-size: 13px;
+  }
+
+  .schedule-row small {
+    font-size: 11px;
+  }
+
+
+  /* -----------------------------------------
+     Quote
+  ----------------------------------------- */
+
+  .quote {
+    padding: 55px 5%;
+  }
+
+  .quote div {
+    font-size: 40px;
+  }
+
+  .quote p {
+    font-size: 18px;
+    line-height: 1.8;
+  }
+
+  .quote small {
+    font-size: 11px;
+  }
+
+
+  /* -----------------------------------------
+     Gallery
+  ----------------------------------------- */
 
   .gallery-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 10px;
   }
 
   .gallery-grid .big {
@@ -899,31 +1478,31 @@ footer p {
     min-height: 300px;
   }
 
-  .donate-card {
-    flex-direction: column;
-    text-align: center;
+  .gallery-grid .big img {
+    min-height: 300px;
   }
 
-  .contact,
-  footer {
-    flex-direction: column;
+  .photo-card {
+    min-height: 170px;
+    border-radius: 13px;
   }
 
-  footer {
-    text-align: center;
+  .photo-card img {
+    height: 150px;
   }
 
-  .music-button {
-    right: 12px;
-    bottom: 12px;
-    padding: 10px 14px;
+  .photo-card b {
+    font-size: 11px;
+    padding: 9px 5px 11px;
   }
 
 
-  /* Committee scrolling on mobile */
+  /* -----------------------------------------
+     Committee
+  ----------------------------------------- */
 
   .member-scroll-section {
-    margin-top: 25px;
+    margin-top: 20px;
   }
 
   .member-scroll-track {
@@ -931,12 +1510,204 @@ footer p {
   }
 
   .member-list {
-    font-size: 14px;
-    padding-right: 35px;
+    font-size: 13px;
+    padding-right: 30px;
   }
 
   .member-list b {
-    margin: 0 12px;
+    margin: 0 10px;
+    font-size: 12px;
+  }
+
+
+  /* -----------------------------------------
+     Donation
+  ----------------------------------------- */
+
+  .donation {
+    gap: 28px;
+  }
+
+  .donation h2 {
+    font-size: 26px;
+  }
+
+  .donation p {
+    font-size: 13px;
+  }
+
+  .secure-note {
+    font-size: 11px;
+  }
+
+  .donate-card {
+    width: 100%;
+    padding: 20px 15px;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    text-align: center;
+
+    border-radius: 18px;
+  }
+
+  .qr {
+    width: min(190px, 70vw);
+    height: min(190px, 70vw);
+    flex-basis: auto;
+  }
+
+  .donate-card h3 {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .donate-card button {
+    font-size: 12px;
+  }
+
+
+  /* -----------------------------------------
+     Sponsors
+  ----------------------------------------- */
+
+  .sponsor-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .sponsor-row span {
+    padding: 18px 8px;
+    font-size: 10px;
+  }
+
+
+  /* -----------------------------------------
+     Contact
+  ----------------------------------------- */
+
+  .contact {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 25px;
+  }
+
+  .contact p {
+    font-size: 12px;
+  }
+
+  .contact-buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .contact-buttons .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+
+  /* -----------------------------------------
+     Footer
+  ----------------------------------------- */
+
+  footer {
+    padding: 30px 5%;
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+    font-size: 11px;
+  }
+
+  footer b {
+    font-size: 14px;
+  }
+
+
+  /* -----------------------------------------
+     Music Button
+  ----------------------------------------- */
+
+  .music-button {
+    right: 12px;
+    bottom: 12px;
+
+    padding: 10px 14px;
+
+    font-size: 11px;
+  }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   400px and below
+========================================================= */
+
+@media (max-width: 400px) {
+
+  .logo b {
+    font-size: 11px;
+  }
+
+  .logo small {
+    display: none;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .hero h2 {
+    font-size: 17px;
+  }
+
+  .count-grid strong {
+    font-size: 19px;
+  }
+
+  .count-grid span {
+    font-size: 7px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-grid .big {
+    grid-column: auto;
+  }
+
+  .sponsor-row {
+    grid-template-columns: 1fr;
+  }
+
+  .music-button {
+    padding: 9px 12px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 
 }
