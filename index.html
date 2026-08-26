@@ -196,6 +196,18 @@
     <article><div class="avatar">S</div><span>Secretary</span><h3>Add Name</h3></article>
     <article><div class="avatar">T</div><span>Treasurer</span><h3>Add Name</h3></article>
   </div>
+
+  <!-- Committee Members -->
+  <div class="member-scroll-section">
+    <h3>Our Committee Members</h3>
+
+    <div class="member-scroll-window">
+      <div id="memberName" class="member-scroll-name">
+        K Yateesh Kumar
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <section id="donate" class="donation">
@@ -261,5 +273,48 @@
 </footer>
 
 <script src="script.js"></script>
+
+<script>
+const committeeMembers = [
+  "K Yateesh Kumar",
+  "S Pavan",
+  "P Gopi",
+  "J Sai",
+  "J Pramod",
+  "D Vamsi Krishna",
+  "A Nagarjuna",
+  "A Krishna Reddy",
+  "A Leela",
+  "SD Subhani",
+  "Mahesh",
+  "Mohid",
+  "Riyaz"
+];
+
+let memberIndex = 0;
+
+const memberName = document.getElementById("memberName");
+
+function showNextMember() {
+  memberName.style.animation = "none";
+
+  void memberName.offsetWidth;
+
+  memberName.textContent = committeeMembers[memberIndex];
+
+  memberName.style.animation = "memberRightToLeft 6s linear";
+
+  memberIndex++;
+
+  if (memberIndex >= committeeMembers.length) {
+    memberIndex = 0;
+  }
+}
+
+showNextMember();
+
+setInterval(showNextMember, 6000);
+</script>
+
 </body>
 </html>
