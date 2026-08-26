@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Admin donation management for Sri Varasiddhi Vinayaka Utsava Committee">
+<title>Admin Donation | Sri Varasiddhi Vinayaka Utsava Committee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="admin-donation.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="brand-telugu">శ్రీ వరసిద్ధి వినాయక ఉత్సవ కమిటీ</div>
+    <div class="brand-en">Sri Varasiddhi Vinayaka Utsava Committee</div>
+  </div>
+  <a href="index.html" class="home-link">← Main Website</a>
+</header>
+
+<main class="page">
+  <section id="loginPanel" class="card login-card">
+    <div class="om">ॐ</div>
+    <div class="kicker">ADMIN ONLY</div>
+    <h1>Donation Management</h1>
+    <p class="muted">Sign in to enter donation details and generate a payment slip.</p>
+
+    <form id="loginForm">
+      <label>Admin Username
+        <input id="username" autocomplete="username" required>
+      </label>
+      <label>Admin Password
+        <input id="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button class="primary" type="submit">🔐 Admin Login</button>
+      <p id="loginMessage" class="message"></p>
+    </form>
+  </section>
+
+  <section id="dashboardPanel" class="hidden">
+    <div class="dashboard-head">
+      <div>
+        <div class="kicker">AUTHORIZED ADMIN</div>
+        <h1>Donation Entry</h1>
+        <p class="muted">Enter the donor information below. The record will be stored in your private Google Sheet.</p>
+      </div>
+      <button id="logoutButton" class="secondary">Logout</button>
+    </div>
+
+    <div class="grid">
+      <section class="card">
+        <h2>Donation Details</h2>
+        <form id="donationForm">
+          <label>Donor Name *
+            <input id="donorName" maxlength="100" required>
+          </label>
+
+          <label>Phone Number *
+            <input id="phone" inputmode="tel" maxlength="20" required>
+          </label>
+
+          <label>Donation Amount (₹) *
+            <input id="amount" type="number" min="1" step="0.01" required>
+          </label>
+
+          <label>Payment Method *
+            <select id="paymentMethod" required>
+              <option value="">Select method</option>
+              <option>UPI</option>
+              <option>Cash</option>
+              <option>Bank Transfer</option>
+              <option>Other</option>
+            </select>
+          </label>
+
+          <label>Donation Date *
+            <input id="donationDate" type="date" required>
+          </label>
+
+          <label>Remarks (Optional)
+            <textarea id="remarks" maxlength="250" rows="3" placeholder="Optional note"></textarea>
+          </label>
+
+          <button class="primary" type="submit">💾 Save Donation & Generate Slip</button>
+          <p id="saveMessage" class="message"></p>
+        </form>
+      </section>
+
+      <section class="card receipt-area">
+        <div class="receipt-actions">
+          <h2>Payment Slip</h2>
+          <button id="printButton" class="secondary" type="button" disabled>🖨 Print / Save PDF</button>
+        </div>
+
+        <div id="receipt" class="receipt">
+          <img class="watermark" src="assets/vinayaka-watermark.png" alt="">
+          <div class="receipt-border">
+            <div class="receipt-om">ॐ</div>
+            <div class="receipt-kicker">SRI VARASIDDHI VINAYAKA UTSAVA COMMITTEE</div>
+            <h3>Donation Payment Slip</h3>
+            <div class="telugu-title">శ్రీ వరసిద్ధి వినాయక ఉత్సవ కమిటీ</div>
+            <div class="divider"></div>
+            <div class="receipt-row"><span>Donor Name</span><b id="rName">—</b></div>
+            <div class="receipt-row"><span>Phone</span><b id="rPhone">—</b></div>
+            <div class="receipt-row"><span>Amount</span><b id="rAmount">—</b></div>
+            <div class="receipt-row"><span>Payment Method</span><b id="rMethod">—</b></div>
+            <div class="receipt-row"><span>Date</span><b id="rDate">—</b></div>
+            <div class="receipt-row"><span>Remarks</span><b id="rRemarks">—</b></div>
+            <div class="divider"></div>
+            <p class="thanks">ధన్యవాదాలు 🙏<br><span>Thank you for supporting our Vinayaka Utsav</span></p>
+            <p class="generated" id="rGenerated">Generated after saving the donation</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </section>
+</main>
+
+<script src="admin-donation.js"></script>
+</body>
+</html>
